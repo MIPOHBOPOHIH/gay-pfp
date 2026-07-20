@@ -187,6 +187,376 @@ const FLAGS = [
                 ctx.fill();
             });
         }
+    },
+    {
+        id: 'demiboy',
+        name: 'Demiboy',
+        draw: (ctx, w, h) => {
+            drawHorizontalStripes(ctx, ['#7F7F7F', '#C3C3C3', '#9AD9EA', '#FFFFFF', '#9AD9EA', '#C3C3C3', '#7F7F7F'], w, h);
+        }
+    },
+    {
+        id: 'demigirl',
+        name: 'Demigirl',
+        draw: (ctx, w, h) => {
+            drawHorizontalStripes(ctx, ['#7F7F7F', '#C3C3C3', '#FDADC8', '#FFFFFF', '#FDADC8', '#C3C3C3', '#7F7F7F'], w, h);
+        }
+    },
+    {
+        id: 'femboy',
+        name: 'Femboy',
+        draw: (ctx, w, h) => {
+            drawHorizontalStripes(ctx, ['#D260A5', '#EDA4CB', '#FEEAFA', '#D260A5', '#FEEAFA', '#EDA4CB', '#D260A5'], w, h);
+        }
+    },
+    {
+        id: 'tatarstan',
+        name: 'Татарстан',
+        draw: (ctx, w, h) => {
+            // Official Tatarstan flag: green top, white middle stripe, red bottom
+            const greenH = h * 0.4375;
+            const whiteH = h * 0.125;
+            const redH = h * 0.4375;
+            ctx.fillStyle = '#00A650';
+            ctx.fillRect(0, 0, w, greenH);
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fillRect(0, greenH, w, whiteH);
+            ctx.fillStyle = '#DA2032';
+            ctx.fillRect(0, greenH + whiteH, w, redH);
+        }
+    },
+    {
+        id: 'omnisexual',
+        name: 'Omnisexual',
+        draw: (ctx, w, h) => {
+            drawHorizontalStripes(ctx, ['#FE9ACE', '#FF53BF', '#200044', '#6760FE', '#8EA6FF'], w, h);
+        }
+    },
+    {
+        id: 'polyamorous',
+        name: 'Polyamorous',
+        draw: (ctx, w, h) => {
+            drawHorizontalStripes(ctx, ['#0000FF', '#FF0000', '#000000'], w, h);
+            // Yellow pi symbol in center
+            ctx.fillStyle = '#FFFF00';
+            ctx.font = `bold ${h * 0.3}px serif`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('π', w / 2, h / 2);
+        }
+    },
+    {
+        id: 'abrosexual',
+        name: 'Abrosexual',
+        draw: (ctx, w, h) => {
+            drawHorizontalStripes(ctx, ['#75CA92', '#B2E4C5', '#FFFFFF', '#E695B5', '#DA446C'], w, h);
+        }
+    },
+    {
+        id: 'demiromantic',
+        name: 'Demiromantic',
+        draw: (ctx, w, h) => {
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fillRect(0, 0, w, h * 0.42);
+            ctx.fillStyle = '#3DA542';
+            ctx.fillRect(0, h * 0.42, w, h * 0.16);
+            ctx.fillStyle = '#A3A3A3';
+            ctx.fillRect(0, h * 0.58, w, h * 0.42);
+            // Black chevron on left
+            ctx.fillStyle = '#000000';
+            ctx.beginPath();
+            ctx.moveTo(0, 0);
+            ctx.lineTo(w * 0.4, h / 2);
+            ctx.lineTo(0, h);
+            ctx.closePath();
+            ctx.fill();
+        }
+    },
+    {
+        id: 'aroace',
+        name: 'Aroace (Aromantic Asexual)',
+        draw: (ctx, w, h) => {
+            drawHorizontalStripes(ctx, ['#E28C00', '#ECCD00', '#FFFFFF', '#62AEDC', '#203856'], w, h);
+        }
+    },
+    {
+        id: 'pangender',
+        name: 'Pangender',
+        draw: (ctx, w, h) => {
+            drawHorizontalStripes(ctx, ['#FFF798', '#FFE580', '#FFDBAD', '#FFFFFF', '#FFDBAD', '#FFE580', '#FFF798'], w, h);
+        }
+    },
+    {
+        id: 'bigender',
+        name: 'Bigender',
+        draw: (ctx, w, h) => {
+            drawHorizontalStripes(ctx, ['#C479A2', '#ECA8CB', '#D5C7E8', '#FFFFFF', '#D5C7E8', '#9BC2E6', '#6D82D1'], w, h);
+        }
+    },
+    {
+        id: 'trigender',
+        name: 'Trigender',
+        draw: (ctx, w, h) => {
+            drawHorizontalStripes(ctx, ['#FF95C5', '#9580FF', '#67D967', '#9580FF', '#FF95C5'], w, h);
+        }
+    },
+    {
+        id: 'twospirit',
+        name: 'Two-Spirit',
+        draw: (ctx, w, h) => {
+            // Two concentric circles on rainbow
+            drawHorizontalStripes(ctx, ['#FF0018', '#FFA52C', '#FFFF41', '#008018', '#0000F9', '#86007D'], w, h);
+            ctx.strokeStyle = '#FFFFFF';
+            ctx.lineWidth = Math.min(w, h) * 0.04;
+            ctx.beginPath();
+            ctx.arc(w / 2, h / 2, Math.min(w, h) * 0.25, 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.arc(w / 2, h / 2, Math.min(w, h) * 0.15, 0, Math.PI * 2);
+            ctx.stroke();
+        }
+    },
+    {
+        id: 'neutrois',
+        name: 'Neutrois',
+        draw: (ctx, w, h) => {
+            drawHorizontalStripes(ctx, ['#FFFFFF', '#2D9E36', '#000000'], w, h);
+        }
+    },
+    {
+        id: 'maverique',
+        name: 'Maverique',
+        draw: (ctx, w, h) => {
+            drawHorizontalStripes(ctx, ['#F8A900', '#FFFFFF', '#F47E00'], w, h);
+        }
+    },
+    {
+        id: 'bear',
+        name: 'Bear Pride',
+        draw: (ctx, w, h) => {
+            drawHorizontalStripes(ctx, ['#623804', '#D66000', '#FEDD63', '#FEE8B8', '#FFFFFF', '#555555', '#000000'], w, h);
+            // Bear paw print
+            ctx.fillStyle = '#000000';
+            const cx = w / 2, cy = h / 2;
+            const r = Math.min(w, h) * 0.06;
+            // Main pad
+            ctx.beginPath();
+            ctx.ellipse(cx, cy + r * 1.2, r * 1.5, r * 1.8, 0, 0, Math.PI * 2);
+            ctx.fill();
+            // Toes
+            const toePositions = [
+                { x: cx - r * 1.8, y: cy - r * 1.2 },
+                { x: cx - r * 0.7, y: cy - r * 2.2 },
+                { x: cx + r * 0.7, y: cy - r * 2.2 },
+                { x: cx + r * 1.8, y: cy - r * 1.2 }
+            ];
+            toePositions.forEach(pos => {
+                ctx.beginPath();
+                ctx.arc(pos.x, pos.y, r * 0.7, 0, Math.PI * 2);
+                ctx.fill();
+            });
+        }
+    },
+    {
+        id: 'leather',
+        name: 'Leather Pride',
+        draw: (ctx, w, h) => {
+            const colors = ['#000000', '#0000AC', '#000000', '#0000AC', '#FFFFFF', '#0000AC', '#000000', '#0000AC', '#000000'];
+            drawHorizontalStripes(ctx, colors, w, h);
+            // Red heart in top-left area
+            ctx.fillStyle = '#FF0000';
+            const hx = w * 0.2, hy = h * 0.2, hs = Math.min(w, h) * 0.08;
+            ctx.beginPath();
+            ctx.moveTo(hx, hy + hs * 0.3);
+            ctx.bezierCurveTo(hx, hy - hs * 0.3, hx - hs, hy - hs * 0.3, hx - hs, hy + hs * 0.3);
+            ctx.bezierCurveTo(hx - hs, hy + hs, hx, hy + hs * 1.2, hx, hy + hs * 1.2);
+            ctx.bezierCurveTo(hx, hy + hs * 1.2, hx + hs, hy + hs, hx + hs, hy + hs * 0.3);
+            ctx.bezierCurveTo(hx + hs, hy - hs * 0.3, hx, hy - hs * 0.3, hx, hy + hs * 0.3);
+            ctx.fill();
+        }
+    },
+    {
+        id: 'rubber',
+        name: 'Rubber Pride',
+        draw: (ctx, w, h) => {
+            drawHorizontalStripes(ctx, ['#000000', '#DD1100', '#000000', '#FFCC00', '#000000'], w, h);
+        }
+    },
+    {
+        id: 'twink',
+        name: 'Twink Pride',
+        draw: (ctx, w, h) => {
+            drawHorizontalStripes(ctx, ['#FDAACC', '#FCD1D8', '#FEEFC7', '#FFFFFF', '#FEEFC7', '#FCD1D8', '#FDAACC'], w, h);
+        }
+    },
+    {
+        id: 'sapphic',
+        name: 'Sapphic',
+        draw: (ctx, w, h) => {
+            drawHorizontalStripes(ctx, ['#FD8BA8', '#FDB8CA', '#FFE8EE', '#FFFFFF', '#E4C6F0', '#B574CF', '#9B4F96'], w, h);
+        }
+    },
+    {
+        id: 'achillean',
+        name: 'Achillean',
+        draw: (ctx, w, h) => {
+            drawHorizontalStripes(ctx, ['#078970', '#6DCEB0', '#B0E8D5', '#FFFFFF', '#7BADE2', '#3D62B3', '#1A237E'], w, h);
+        }
+    },
+    {
+        id: 'queer',
+        name: 'Queer',
+        draw: (ctx, w, h) => {
+            drawHorizontalStripes(ctx, ['#000000', '#9AD9EA', '#00A650', '#FFFFFF', '#FFC800', '#F5A9B8', '#000000'], w, h);
+        }
+    },
+    {
+        id: 'questioning',
+        name: 'Questioning',
+        draw: (ctx, w, h) => {
+            drawHorizontalStripes(ctx, ['#FFFFFF', '#F2E4FB', '#C5A3DA', '#7E548F', '#C5A3DA', '#F2E4FB', '#FFFFFF'], w, h);
+            ctx.fillStyle = '#7E548F';
+            ctx.font = `bold ${h * 0.25}px 'Inter', sans-serif`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('?', w / 2, h / 2);
+        }
+    },
+    {
+        id: 'vincian',
+        name: 'Vincian (Gay Men)',
+        draw: (ctx, w, h) => {
+            drawHorizontalStripes(ctx, ['#018E71', '#21CFAB', '#9AE9C3', '#FFFFFF', '#7CAFE3', '#4F47CC', '#3A1379'], w, h);
+        }
+    },
+    {
+        id: 'tomboyFlag',
+        name: 'Tomboy',
+        draw: (ctx, w, h) => {
+            drawHorizontalStripes(ctx, ['#3C2A78', '#5864A0', '#96BED6', '#D5EBFF', '#FFC0CB', '#D5EBFF', '#96BED6', '#5864A0', '#3C2A78'], w, h);
+        }
+    },
+    {
+        id: 'russia',
+        name: 'Россия',
+        draw: (ctx, w, h) => {
+            drawHorizontalStripes(ctx, ['#FFFFFF', '#0039A6', '#D52B1E'], w, h);
+        }
+    },
+    {
+        id: 'bashkortostan',
+        name: 'Башкортостан',
+        draw: (ctx, w, h) => {
+            drawHorizontalStripes(ctx, ['#0070B8', '#FFFFFF', '#3D9439'], w, h);
+            // Kurai flower emblem in center
+            ctx.fillStyle = '#FFB300';
+            const cx = w / 2, cy = h / 2, petalR = Math.min(w, h) * 0.06;
+            for (let i = 0; i < 7; i++) {
+                const angle = (i * 2 * Math.PI) / 7 - Math.PI / 2;
+                ctx.beginPath();
+                ctx.ellipse(
+                    cx + Math.cos(angle) * petalR * 1.5,
+                    cy + Math.sin(angle) * petalR * 1.5,
+                    petalR * 0.5, petalR, angle, 0, Math.PI * 2
+                );
+                ctx.fill();
+            }
+            ctx.beginPath();
+            ctx.arc(cx, cy, petalR * 0.6, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    },
+    {
+        id: 'ukraine',
+        name: 'Україна',
+        draw: (ctx, w, h) => {
+            ctx.fillStyle = '#005BBB';
+            ctx.fillRect(0, 0, w, h / 2);
+            ctx.fillStyle = '#FFD500';
+            ctx.fillRect(0, h / 2, w, h / 2);
+        }
+    },
+    {
+        id: 'israel',
+        name: 'Израиль',
+        draw: (ctx, w, h) => {
+            // White background
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fillRect(0, 0, w, h);
+            // Blue stripes
+            const stripeH = h * 0.115;
+            ctx.fillStyle = '#0038B8';
+            ctx.fillRect(0, h * 0.08, w, stripeH);
+            ctx.fillRect(0, h - h * 0.08 - stripeH, w, stripeH);
+            // Star of David (two overlapping triangles)
+            const cx = w / 2, cy = h / 2;
+            const r = Math.min(w, h) * 0.16;
+            ctx.strokeStyle = '#0038B8';
+            ctx.lineWidth = Math.min(w, h) * 0.025;
+            ctx.lineJoin = 'miter';
+            // Triangle pointing up
+            ctx.beginPath();
+            for (let i = 0; i < 3; i++) {
+                const angle = (i * 2 * Math.PI) / 3 - Math.PI / 2;
+                const x = cx + Math.cos(angle) * r;
+                const y = cy + Math.sin(angle) * r;
+                if (i === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.closePath();
+            ctx.stroke();
+            // Triangle pointing down
+            ctx.beginPath();
+            for (let i = 0; i < 3; i++) {
+                const angle = (i * 2 * Math.PI) / 3 + Math.PI / 2;
+                const x = cx + Math.cos(angle) * r;
+                const y = cy + Math.sin(angle) * r;
+                if (i === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.closePath();
+            ctx.stroke();
+        }
+    },
+    {
+        id: 'usa',
+        name: 'США',
+        draw: (ctx, w, h) => {
+            // 13 stripes
+            const stripeH = h / 13;
+            for (let i = 0; i < 13; i++) {
+                ctx.fillStyle = i % 2 === 0 ? '#B22234' : '#FFFFFF';
+                ctx.fillRect(0, i * stripeH, w, stripeH);
+            }
+            // Blue canton
+            const cantonW = w * 0.4;
+            const cantonH = 7 * stripeH;
+            ctx.fillStyle = '#3C3B6E';
+            ctx.fillRect(0, 0, cantonW, cantonH);
+            // Stars (simplified 5x6 + 4x5 grid → draw small star shapes)
+            ctx.fillStyle = '#FFFFFF';
+            const rows = [6, 5, 6, 5, 6, 5, 6, 5, 6];
+            const starR = Math.min(cantonW, cantonH) * 0.032;
+            const rowH = cantonH / 10;
+            rows.forEach((cols, row) => {
+                const offsetX = cols === 5 ? cantonW / 12 : 0;
+                for (let col = 0; col < cols; col++) {
+                    const sx = offsetX + (col + 0.5) * (cantonW / cols);
+                    const sy = (row + 0.5) * rowH;
+                    // Draw 5-pointed star
+                    ctx.beginPath();
+                    for (let p = 0; p < 5; p++) {
+                        const angle = (p * 4 * Math.PI) / 5 - Math.PI / 2;
+                        const x = sx + Math.cos(angle) * starR;
+                        const y = sy + Math.sin(angle) * starR;
+                        if (p === 0) ctx.moveTo(x, y);
+                        else ctx.lineTo(x, y);
+                    }
+                    ctx.closePath();
+                    ctx.fill();
+                }
+            });
+        }
     }
 ];
 
