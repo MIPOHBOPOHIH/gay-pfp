@@ -552,6 +552,13 @@ const FLAGS = [
         }
     },
     {
+        id: 'russia_bsb',
+        name: 'Бело-сине-белый (БСБ)',
+        draw: (ctx, w, h) => {
+            drawHorizontalStripes(ctx, ['#FFFFFF', '#0052B4', '#FFFFFF'], w, h);
+        }
+    },
+    {
         id: 'kazakhstan',
         name: 'Казахстан',
         draw: (ctx, w, h) => {
