@@ -210,22 +210,6 @@ const FLAGS = [
         }
     },
     {
-        id: 'tatarstan',
-        name: 'Татарстан',
-        draw: (ctx, w, h) => {
-            // Official Tatarstan flag: green top, white middle stripe, red bottom
-            const greenH = h * 0.4375;
-            const whiteH = h * 0.125;
-            const redH = h * 0.4375;
-            ctx.fillStyle = '#00A650';
-            ctx.fillRect(0, 0, w, greenH);
-            ctx.fillStyle = '#FFFFFF';
-            ctx.fillRect(0, greenH, w, whiteH);
-            ctx.fillStyle = '#DA2032';
-            ctx.fillRect(0, greenH + whiteH, w, redH);
-        }
-    },
-    {
         id: 'omnisexual',
         name: 'Omnisexual',
         draw: (ctx, w, h) => {
@@ -397,13 +381,6 @@ const FLAGS = [
         }
     },
     {
-        id: 'achillean',
-        name: 'Achillean',
-        draw: (ctx, w, h) => {
-            drawHorizontalStripes(ctx, ['#078970', '#6DCEB0', '#B0E8D5', '#FFFFFF', '#7BADE2', '#3D62B3', '#1A237E'], w, h);
-        }
-    },
-    {
         id: 'queer',
         name: 'Queer',
         draw: (ctx, w, h) => {
@@ -423,13 +400,6 @@ const FLAGS = [
         }
     },
     {
-        id: 'vincian',
-        name: 'Vincian (Gay Men)',
-        draw: (ctx, w, h) => {
-            drawHorizontalStripes(ctx, ['#018E71', '#21CFAB', '#9AE9C3', '#FFFFFF', '#7CAFE3', '#4F47CC', '#3A1379'], w, h);
-        }
-    },
-    {
         id: 'tomboyFlag',
         name: 'Tomboy',
         draw: (ctx, w, h) => {
@@ -441,29 +411,6 @@ const FLAGS = [
         name: 'Россия',
         draw: (ctx, w, h) => {
             drawHorizontalStripes(ctx, ['#FFFFFF', '#0039A6', '#D52B1E'], w, h);
-        }
-    },
-    {
-        id: 'bashkortostan',
-        name: 'Башкортостан',
-        draw: (ctx, w, h) => {
-            drawHorizontalStripes(ctx, ['#0070B8', '#FFFFFF', '#3D9439'], w, h);
-            // Kurai flower emblem in center
-            ctx.fillStyle = '#FFB300';
-            const cx = w / 2, cy = h / 2, petalR = Math.min(w, h) * 0.06;
-            for (let i = 0; i < 7; i++) {
-                const angle = (i * 2 * Math.PI) / 7 - Math.PI / 2;
-                ctx.beginPath();
-                ctx.ellipse(
-                    cx + Math.cos(angle) * petalR * 1.5,
-                    cy + Math.sin(angle) * petalR * 1.5,
-                    petalR * 0.5, petalR, angle, 0, Math.PI * 2
-                );
-                ctx.fill();
-            }
-            ctx.beginPath();
-            ctx.arc(cx, cy, petalR * 0.6, 0, Math.PI * 2);
-            ctx.fill();
         }
     },
     {
@@ -556,6 +503,99 @@ const FLAGS = [
                     ctx.fill();
                 }
             });
+        }
+    },
+    {
+        id: 'bashkortostan',
+        name: 'Башкортостан',
+        draw: (ctx, w, h) => {
+            drawHorizontalStripes(ctx, ['#0070B8', '#FFFFFF', '#3D9439'], w, h);
+            // Kurai flower emblem in center
+            ctx.fillStyle = '#FFB300';
+            const cx = w / 2, cy = h / 2, petalR = Math.min(w, h) * 0.06;
+            for (let i = 0; i < 7; i++) {
+                const angle = (i * 2 * Math.PI) / 7 - Math.PI / 2;
+                ctx.beginPath();
+                ctx.ellipse(
+                    cx + Math.cos(angle) * petalR * 1.5,
+                    cy + Math.sin(angle) * petalR * 1.5,
+                    petalR * 0.5, petalR, angle, 0, Math.PI * 2
+                );
+                ctx.fill();
+            }
+            ctx.beginPath();
+            ctx.arc(cx, cy, petalR * 0.6, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    },
+    {
+        id: 'tatarstan',
+        name: 'Татарстан',
+        draw: (ctx, w, h) => {
+            // Official Tatarstan flag: green top, white middle stripe, red bottom
+            const greenH = h * 0.4375;
+            const whiteH = h * 0.125;
+            const redH = h * 0.4375;
+            ctx.fillStyle = '#00A650';
+            ctx.fillRect(0, 0, w, greenH);
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fillRect(0, greenH, w, whiteH);
+            ctx.fillStyle = '#DA2032';
+            ctx.fillRect(0, greenH + whiteH, w, redH);
+        }
+    },
+    {
+        id: 'belarus_bchb',
+        name: 'Беларусь (БЧБ)',
+        draw: (ctx, w, h) => {
+            drawHorizontalStripes(ctx, ['#FFFFFF', '#D22730', '#FFFFFF'], w, h);
+        }
+    },
+    {
+        id: 'kazakhstan',
+        name: 'Казахстан',
+        draw: (ctx, w, h) => {
+            // Sky blue background
+            ctx.fillStyle = '#00B5E2';
+            ctx.fillRect(0, 0, w, h);
+            
+            const cx = w / 2, cy = h * 0.45;
+            const sunR = Math.min(w, h) * 0.12;
+            
+            // Sun
+            ctx.fillStyle = '#FFC91B';
+            ctx.beginPath();
+            ctx.arc(cx, cy, sunR, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Sun rays (32 triangular rays)
+            for (let i = 0; i < 32; i++) {
+                const angle = (i * 2 * Math.PI) / 32;
+                const innerR = sunR * 1.05;
+                const outerR = sunR * 1.35;
+                const widthA = Math.PI / 64;
+                ctx.beginPath();
+                ctx.moveTo(cx + Math.cos(angle - widthA) * innerR, cy + Math.sin(angle - widthA) * innerR);
+                ctx.lineTo(cx + Math.cos(angle) * outerR, cy + Math.sin(angle) * outerR);
+                ctx.lineTo(cx + Math.cos(angle + widthA) * innerR, cy + Math.sin(angle + widthA) * innerR);
+                ctx.closePath();
+                ctx.fill();
+            }
+            
+            // Steppe Eagle under sun
+            ctx.beginPath();
+            const ey = cy + sunR * 1.5;
+            const ew = sunR * 1.8;
+            ctx.moveTo(cx - ew, ey + sunR * 0.3);
+            ctx.quadraticCurveTo(cx, ey - sunR * 0.3, cx + ew, ey + sunR * 0.3);
+            ctx.quadraticCurveTo(cx, ey + sunR * 0.1, cx - ew, ey + sunR * 0.3);
+            ctx.closePath();
+            ctx.fill();
+
+            // Vertical ornament bar on left (hoist)
+            const ornW = w * 0.07;
+            ctx.fillStyle = '#FFC91B';
+            ctx.fillRect(w * 0.02, h * 0.05, ornW, h * 0.9);
         }
     }
 ];
